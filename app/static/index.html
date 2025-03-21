@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Direct Preference Optimization</title>
+    <!-- Bootstrap CSS from CDN -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="styles.css" rel="stylesheet">
+</head>
+<body>
+
+<div class="container-fluid d-flex justify-content-center align-items-center vh-100 bg-gradient">
+    <div class="jumbotron text-center p-5 shadow rounded-custom">
+        <!-- Header with centralized heading and link -->
+        <div class="d-flex flex-column align-items-center mb-4">
+            <h1 class="display-4 font-weight-bold text-dark mb-3">Direct Preference Optimization</h1>
+        </div>
+        
+        <p class="lead text-muted">Get Curated Response Based On Your Inputs</p>
+        
+        <hr class="my-4">
+        <form id="searchForm" class="text-left">
+            <!-- Year Input -->
+            <div class="form-group">
+                <input type="text" class="form-control" id="search" placeholder="Enter search text">
+                <small id="searchTextError" class="form-text text-danger"></small>
+            </div>
+            <button type="submit" class="btn btn-gradient btn-lg btn-block mt-4">Generate Response</button>
+        </form>
+        <!-- Result Display Section -->
+        <div id="resultContainer" class="result-container mt-5 p-4 text-center shadow-lg" style="display: none;">
+            <p id="searchResult" class="font-weight-bold display-4 text-success"></p>
+        </div>
+    </div>
+</div>
+
+<footer class="text-center text-muted mt-5">
+    <p>&copy; 2025 DirectPreferenceOptimization. All rights reserved.</p>
+</footer>
+
+<!-- Bootstrap JS and dependencies from CDN -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<!-- Custom JS -->
+<script src="script.js"></script>
+</body>
+</html>
