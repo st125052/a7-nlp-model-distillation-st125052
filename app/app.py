@@ -20,8 +20,11 @@ def serve_custom_path(path):
 @app.route('/predict', methods=['GET'])
 def predict():
     query = request.args.get('search', '').strip()  
-    response = get_prediction(query)
-    return jsonify(response)
+    label, confidence = get_prediction(query)
+    return jsonify({
+        'label': label,
+        'confidence': confidence
+    })
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000, debug=True)
