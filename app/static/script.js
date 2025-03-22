@@ -25,15 +25,12 @@ function predictRelevantContent(search) {
     fetch(apiUrl)
         .then(response => response.json())
         .then(data => {
-            if (Array.isArray(data) && data.length > 0) {
+            if (data && data.label) {
                 const resultContainer = document.getElementById('resultContainer');
                 const searchResultElement = document.getElementById('searchResult');
 
                 searchResultElement.innerHTML = '';
-
-                data.forEach(word => {
-                    searchResultElement.innerHTML += `${word}`;
-                });
+                searchResultElement.innerHTML = `${data.label}`;
                 
                 resultContainer.style.display = 'block';
             } else {

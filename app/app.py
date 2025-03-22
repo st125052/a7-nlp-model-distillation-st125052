@@ -8,6 +8,11 @@ app = Flask(__name__, static_folder='./static', static_url_path='')
 # Enable CORS
 CORS(app)
 
+with open("./models/final-model/student_model.pkl", "rb") as f:
+    model = pickle.load(f)
+with open("./models/final-model/tokenizer.pkl", "rb") as f:
+    tokenizer = pickle.load(f)
+
 # Define the routes
 @app.route('/')
 def index_page():
@@ -20,7 +25,7 @@ def serve_custom_path(path):
 @app.route('/predict', methods=['GET'])
 def predict():
     query = request.args.get('search', '').strip()  
-    label, confidence = get_prediction(query)
+    label, confidence = get_prediction(query, model, tokenizer)
     return jsonify({
         'label': label,
         'confidence': confidence
