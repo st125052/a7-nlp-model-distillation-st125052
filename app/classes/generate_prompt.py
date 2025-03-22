@@ -1,12 +1,6 @@
 import torch
-import pickle
-
-def get_torch_device():
-    device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-    return device
 
 def predict_toxicity(text, model, tokenizer, device, id2word):
-    model.to(device)
     inputs = tokenizer(text, return_tensors="pt", truncation=True, padding=True)
     inputs = {k: v.to(device) for k, v in inputs.items()}
     with torch.no_grad():
@@ -16,8 +10,7 @@ def predict_toxicity(text, model, tokenizer, device, id2word):
     predicted_class = torch.argmax(probs, dim=-1).item()
     return id2word[predicted_class], probs[0][predicted_class].item()
 
-def get_prediction(input_text, model, tokenizer):
-    device = get_torch_device()
+def get_prediction(input_text, model, tokenizer, device):
     id2word = {
         0: 'Not Toxic', 
         1: 'Toxic', 
