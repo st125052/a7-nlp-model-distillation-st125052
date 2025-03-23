@@ -11,9 +11,9 @@ CORS(app)
 
 
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-with open("./models/final-model/student_model.pkl", "rb") as f:
+with open("./models/final-model-cpu/student_model.pkl", "rb") as f:
     model = pickle.load(f).to(device)
-with open("./models/final-model/tokenizer.pkl", "rb") as f:
+with open("./models/final-model-cpu/tokenizer.pkl", "rb") as f:
     tokenizer = pickle.load(f)
 
 # Define the routes

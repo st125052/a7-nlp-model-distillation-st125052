@@ -3,4 +3,6 @@ services:
     image: st125052/a7-model-distillation:latest-deployment
     ports:
       - "5000:5000"
+    volumes:
+      - /mnt/docker-data/my_service_data:/app/data
     restart: always

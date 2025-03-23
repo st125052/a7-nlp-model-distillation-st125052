@@ -1,4 +1,4 @@
-notebooks/helper/even-layers-distillation/
-notebooks/helper/low-rank-adaptation/
-notebooks/helper/odd-layers-distillation/
-app/models/final-model/
+notebooks/helper/even-layers-distillation*/
+notebooks/helper/low-rank-adaptation*/
+notebooks/helper/odd-layers-distillation*/
+app/models/final-model*/
